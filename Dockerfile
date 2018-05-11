@@ -23,7 +23,7 @@ COPY Caddyfile /usr/local/caddy/Caddyfile
 COPY SecureCaddyfile /usr/local/caddy/SecureCaddyfile
 
 RUN mkdir -p /usr/local/www && mkdir -p /usr/local/www/aria2
-
+RUN echo '<META HTTP-EQUIV="Refresh" CONTENT="0; URL=/aria2">'> /usr/local/www/index.html
 #AriaNg
 RUN mkdir /usr/local/www/aria2/Download && cd /usr/local/www/aria2 \
  && chmod +rw /root/conf/aria2.session \
