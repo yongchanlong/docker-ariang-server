@@ -24,5 +24,8 @@ echo "Start aria2 with standard mode"
 --enable-rpc --rpc-listen-all \
 && caddy -quic --conf ${CADDY_FILE}
 fi
+if [ -d "/run/secrets/" ]; then
+  export ARIA2_PWD=$(cat /run/secrets/password )
+fi
 
 
