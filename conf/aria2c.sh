@@ -1,4 +1,7 @@
 #!/bin/sh
+if [ -d "/run/secrets/" ]; then
+  export ARIA2_PWD=$(cat /run/secrets/password )
+fi
 echo "Run aria2c and ariaNG"
 echo $ENABLE_AUTH
 if [ "$ENABLE_AUTH" = "true" ]; then
@@ -24,8 +27,4 @@ echo "Start aria2 with standard mode"
 --enable-rpc --rpc-listen-all \
 && caddy -quic --conf ${CADDY_FILE}
 fi
-if [ -d "/run/secrets/" ]; then
-  export ARIA2_PWD=$(cat /run/secrets/password )
-fi
-
 
